@@ -46,19 +46,6 @@ export const MapsScreen = ({navigation}) => {
     const countryChangeFunc = async (it,state) => {
         var str = it.GeoObject.Point.pos;
         var stringArray = str.split(/(\s+)/);
-        setLocation({
-            lat: +stringArray[2],
-            lon: +stringArray[0],
-            zoom: 8,
-            name: it.GeoObject.metaDataProperty.GeocoderMetaData.Address.Components[2].name,
-            address:it.GeoObject.metaDataProperty.GeocoderMetaData.Address.Components[3].name + ' ' + it.GeoObject.metaDataProperty.GeocoderMetaData.Address.Components[4].name
-        });
-        setSelectedCountry({
-            lat: +stringArray[2],
-            lon: +stringArray[0],
-            zoom: 8,
-            name: it.GeoObject.metaDataProperty.GeocoderMetaData.Address.Components[2].name,
-            address:it.GeoObject.metaDataProperty.GeocoderMetaData.Address.Components[3].name + ' ' + it.GeoObject.metaDataProperty.GeocoderMetaData.Address.Components[4].name    });
         if(!state){
             await axiosFunc({
                 lat: +stringArray[2],
@@ -66,31 +53,47 @@ export const MapsScreen = ({navigation}) => {
                 zoom: 8,
                 name: it.GeoObject.metaDataProperty.GeocoderMetaData.Address.Components[2].name,
                 address:it.GeoObject.metaDataProperty.GeocoderMetaData.Address.Components[3].name + ' ' + it.GeoObject.metaDataProperty.GeocoderMetaData.Address.Components[4].name    })
+        } else {
+            setLocation({
+                lat: +stringArray[2],
+                lon: +stringArray[0],
+                zoom: 8,
+                name: it.GeoObject.metaDataProperty.GeocoderMetaData.Address.Components[2].name,
+                address:it.GeoObject.metaDataProperty.GeocoderMetaData.Address.Components[3].name + ' ' + it.GeoObject.metaDataProperty.GeocoderMetaData.Address.Components[4].name
+            });
+            setSelectedCountry({
+                lat: +stringArray[2],
+                lon: +stringArray[0],
+                zoom: 8,
+                name: it.GeoObject.metaDataProperty.GeocoderMetaData.Address.Components[2].name,
+                address:it.GeoObject.metaDataProperty.GeocoderMetaData.Address.Components[3].name + ' ' + it.GeoObject.metaDataProperty.GeocoderMetaData.Address.Components[4].name    });
         }
     };
 
     const axiosFunc = async (location) => {
+        await setStore(location);
+        setLoading(true)
         try {
-            const response = await axiosInstance.put(`/users/get-geo`, {city: location.name,address:location.address} );
-            await usersGet()
+            const response = await axiosInstance.put(`/users/get-geo`, {city: location?.name,address:location?.address} );
+             usersGet(location)
+            setLoading(false)
         } catch (e) {
+            // Alert.alert(location.name,JSON.stringify(e.response.data))
             setLoading(false)
             console.log(e,'fff')
         }
     }
-    const usersGet = async () => {
-
+    const usersGet = async (location) => {
         try {
             const response = await axiosInstance.get("/users/profile/buyer");
             dispatch({
                 type: SET_CUSTOMER,
                 payload: response.data.user_data.user,
             });
-            await setStore(selectedCountry);
-            navigation.replace("TabNavigation");
-
+             navigation.replace("TabNavigation");
             setLoading(false);
         } catch (e) {
+            // Alert.alert(location?.name,JSON.stringify(e.response.data))
             setLoading(false);
             console.log(e,'ff');
         }

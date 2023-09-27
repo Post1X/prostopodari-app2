@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {styles} from "./styles";
 import {FlatList, Image, Text, TouchableOpacity, View} from "react-native";
 import {CategoryData, FormCategory, BackButton, chooseData, WaitingForm, AddTrushData} from "../../../../components";
-import {AddScreenName, globalStyles, HomeScreenName, SignInName} from "../../../../constants";
+import {AddName, AddScreenName, globalStyles, HomeScreenName, SignInName} from "../../../../constants";
 
 
 export const AddTrushScreen = ({navigation, route}) => {
@@ -17,7 +17,7 @@ export const AddTrushScreen = ({navigation, route}) => {
     }
 
     const addFunc = () =>{
-        navigation.navigate(AddScreenName)
+        navigation.navigate(AddName)
     }
     return (
         <View style={globalStyles.container}>

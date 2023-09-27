@@ -162,6 +162,7 @@ export const HomeScreen = ({navigation}) => {
             console.log(e);
         }
     }
+
     const getBanner = async () => {
         try {
             const response = await axiosInstance.get("/goods/banner");
