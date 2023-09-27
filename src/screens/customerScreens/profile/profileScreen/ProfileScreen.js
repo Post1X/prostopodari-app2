@@ -45,7 +45,7 @@ export const ProfileScreen = ({navigation}) => {
                                     <Image source={place} style={styles.placeIcon}/>
                                     <Text
                                         style={[globalStyles.titleText, globalStyles.weightLight, styles.placeText]}>г.
-                                        {store.city} / {store.address}</Text>
+                                        {store.city}</Text>
                                 </View>
                 </View>
                 <View>

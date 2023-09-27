@@ -275,7 +275,7 @@ export const HomeScreen = ({navigation}) => {
                                     <TouchableOpacity style={styles.HeaderFooter}>
                                         <Image source={place} style={styles.winIconStyle}/>
                                         <Text
-                                            style={[styles.headerFooterText, globalStyles.titleText, globalStyles.titleTextSmall]}>Адрес {store.city} / {store.address}</Text>
+                                            style={[styles.headerFooterText, globalStyles.titleText, globalStyles.titleTextSmall]}>Адрес {store.city}</Text>
                                     </TouchableOpacity>
                                 </View>
                                 <View style={styles.contView}>

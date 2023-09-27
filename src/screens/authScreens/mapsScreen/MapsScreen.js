@@ -78,7 +78,6 @@ export const MapsScreen = ({navigation}) => {
              usersGet(location)
             setLoading(false)
         } catch (e) {
-            // Alert.alert(location.name,JSON.stringify(e.response.data))
             setLoading(false)
             console.log(e,'fff')
         }
@@ -93,7 +92,6 @@ export const MapsScreen = ({navigation}) => {
              navigation.replace("TabNavigation");
             setLoading(false);
         } catch (e) {
-            // Alert.alert(location?.name,JSON.stringify(e.response.data))
             setLoading(false);
             console.log(e,'ff');
         }
