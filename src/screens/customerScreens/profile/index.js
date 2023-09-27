@@ -11,3 +11,4 @@ export { FinancialFilterScreen } from "./financialFilterScreen";
 export { AddPromoCodeScreen } from "./addPromoCodeScreen";
 export { ApplicationsDataScreen } from "./applicationsDataScreen";
 export { OkayPromoScreen } from "./okayPromoScreen";
+export { LoremScreen } from "./loremScreen";

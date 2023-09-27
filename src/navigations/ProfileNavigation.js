@@ -14,7 +14,7 @@ import {
     ShopDataName,
     AddPromoCodeName,
     ApplicationsDataName,
-    OkayPromoName, MessagesName
+    OkayPromoName, MessagesName, LoremName
 } from "../constants";
 import {
     CreateShopScreen,
@@ -30,7 +30,7 @@ import {
     ShopDataScreen,
     AddPromoCodeScreen,
     ApplicationsDataScreen,
-    OkayPromoScreen, MessagesScreen
+    OkayPromoScreen, MessagesScreen, LoremScreen
 } from "../screens";
 
 const Stack = createStackNavigator();
@@ -56,6 +56,8 @@ function ProfileNavigation() {
             <Stack.Screen name={ApplicationsDataName} component={ApplicationsDataScreen} />
             <Stack.Screen name={OkayPromoName} component={OkayPromoScreen} />
             <Stack.Screen name={MessagesName} component={MessagesScreen}/>
+            <Stack.Screen name={LoremName} component={LoremScreen}/>
+
         </Stack.Navigator>
     );
 }

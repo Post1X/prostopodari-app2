@@ -34,3 +34,4 @@ export const ShopName = 'shop screen'
 export const ReviewName = 'Review Name'
 export const MessagesName = "messages name";
 export const SearchName = "search name";
+export const LoremName = "lorem name";

@@ -9,14 +9,35 @@ import ApplicationsNavigation from "./ApplicationsNavigation";
 import {getFocusedRouteNameFromRoute} from "@react-navigation/native";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import {
-    AddName, ApplicationsDataName,
+    AddName,
+    ApplicationsDataName,
     ApplicationsName,
     ChatName,
-    Colors, CreateShopName, DeleteShopName, EditMyDetailsName,
-    FilterName, FinancialFilterName, FinancialReportDataName, FinancialReportName, GoodsDataName, GoodsImgName,
-    HomeName, MyDetailsScreenName,
-    ProfileName, PromotionServicesName, SaveEditProfileName, SaveItemName,
-    ShopDataName, AddPromoCodeName, OkayPromoName, MapsScreenName, AddTrushName, ShopName, ReviewName, MessagesName
+    Colors,
+    CreateShopName,
+    DeleteShopName,
+    EditMyDetailsName,
+    FilterName,
+    FinancialFilterName,
+    FinancialReportDataName,
+    FinancialReportName,
+    GoodsDataName,
+    GoodsImgName,
+    HomeName,
+    MyDetailsScreenName,
+    ProfileName,
+    PromotionServicesName,
+    SaveEditProfileName,
+    SaveItemName,
+    ShopDataName,
+    AddPromoCodeName,
+    OkayPromoName,
+    MapsScreenName,
+    AddTrushName,
+    ShopName,
+    ReviewName,
+    MessagesName,
+    LoremName
 } from "../constants";
 
 const Tab = createBottomTabNavigator();
@@ -241,6 +262,8 @@ export default function TabNavigation() {
                             return false;
                         }else if (routeName === MessagesName) {
                             return false;
+                        }else if (routeName === LoremName) {
+                            return false;
                         }
                         return true;
                     })(route),
@@ -276,6 +299,8 @@ export default function TabNavigation() {
                             return {display: "none"};
                         }else if (routeName === MessagesName) {
                             return {display: "none"};
+                        }else if (routeName === LoremName) {
+                            return {display: "none"};
                         }
                         return styles.tabBarStyle;
                     })(route),
@@ -308,6 +333,8 @@ export default function TabNavigation() {
                         } else if (routeName === OkayPromoName) {
                             () => null;
                         }else if (routeName === MessagesName) {
+                            () => null;
+                        }else if (routeName === LoremName) {
                             () => null;
                         }
                     })(route),
