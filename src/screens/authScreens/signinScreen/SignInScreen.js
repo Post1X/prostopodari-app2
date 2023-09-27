@@ -21,7 +21,7 @@ import giftIconPink from "../../../assets/images/giftIconPink.png";
 import SwitchToggle from "react-native-switch-toggle";
 
 export const SignIn = ({navigation}) => {
-    const [phone, setPhone] = useState("");
+    const [phone, setPhone] = useState("+7");
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
     const [status, setStatus] = useState(false);
@@ -49,7 +49,7 @@ export const SignIn = ({navigation}) => {
         } else if(phone.length <= 8){
             setError('неверный Телефон ');
         }else if(!status) {
-            setError('нажмите на флажки');
+            setError('Для продолжения необходимо согласиться с правилами и условиями');
         }
     }
 
@@ -74,6 +74,8 @@ export const SignIn = ({navigation}) => {
                                 <AppInput
                                     placeholder={"Телефон"}
                                     keyboardType={'phone-pad'}
+                                    value={phone}
+                                    defaultValue={phone}
                                     onChangeText={(e) => {
                                         onChangeTextFunc(e, setPhone);
                                     }}
@@ -95,7 +97,7 @@ export const SignIn = ({navigation}) => {
                                     leftText={"CheckBox"}
                                 />
                                 <Text style={[globalStyles.titleText, globalStyles.titleTextSmall,styles.checkStyle]}>я соглашаюсь с
-                                    <Text style={[styles.SignInTextBold]}>условиями использования сайта</Text> и <Text style={[styles.SignInTextBold]}>политикой обработки персональный данных</Text>
+                                    <Text style={[styles.SignInTextBold]}> условиями использования приложения</Text> и <Text style={[styles.SignInTextBold]}>политикой обработки персональный данных</Text>
                                 </Text>
                             </View>
                         </View>

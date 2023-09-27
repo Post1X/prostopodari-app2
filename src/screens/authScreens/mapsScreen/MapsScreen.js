@@ -124,7 +124,7 @@ export const MapsScreen = ({navigation}) => {
                 <View>
                     <Image source={place} style={styles.placeIcon} />
                     <AppInput
-                        placeholder={"Введите адрес"}
+                        placeholder={"Введите адрес доставки"}
                         style={styles.input}
                         value={countryText}
                         onChangeText={(e) => onChangeTextFunc(e, setCountryText)}
